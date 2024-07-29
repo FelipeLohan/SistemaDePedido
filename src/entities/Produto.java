@@ -29,10 +29,22 @@ public class Produto {
         this.preco = preco;
     }
 
+    
+
 
     @Override
     public String toString() {
         return "Produto [nome=" + nome + ", preco=" + preco + ", id=" + id + "]";
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 

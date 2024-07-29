@@ -1,5 +1,6 @@
 package entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,14 +8,14 @@ import java.util.List;
 import entities.enums.StatusPedido;
 
 public class Pedido {
-    private Date momentoDoPedido;
+    private LocalDate momentoDoPedido;
     private StatusPedido status;
 
     private Cliente cliente;
     List<ItensPedido> items = new ArrayList();
 
     //constructor
-    public Pedido(Date momentoDoPedido, StatusPedido status) {
+    public Pedido(LocalDate momentoDoPedido, StatusPedido status) {
         this.momentoDoPedido = momentoDoPedido;
         this.status = status;
     }
@@ -34,11 +35,11 @@ public class Pedido {
 
 
     //getters and setters
-    public Date getMomentoDoPedido() {
+    public LocalDate getMomentoDoPedido() {
         return momentoDoPedido;
     }
 
-    public void setMomentoDoPedido(Date momentoDoPedido) {
+    public void setMomentoDoPedido(LocalDate momentoDoPedido) {
         this.momentoDoPedido = momentoDoPedido;
     }
 

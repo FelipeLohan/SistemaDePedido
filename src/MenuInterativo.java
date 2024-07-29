@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import entities.*;
+import entities.enums.StatusPedido;
 
 public class MenuInterativo {
     
@@ -13,6 +14,8 @@ public class MenuInterativo {
         Scanner teclado = new Scanner(System.in);
         int opcao = 0;
         List<Produto> listaProdutos = new ArrayList();
+        LocalDate momentoPedido = LocalDate.now();
+        Pedido p = new Pedido(momentoPedido, StatusPedido.PAGAMENTO_PENDENTE);
         do{
             
             System.out.println("---------Sistema de Pedido---------");
@@ -42,14 +45,28 @@ public class MenuInterativo {
                                     break;
                                 case 3:
                                     System.out.println("Qual produto voce deseja adicionar ao carrinho?");
-                                        for (Produto p : listaProdutos) {
-                                            System.out.println(p.toString());
+                                        for (Produto prod : listaProdutos) {
+                                            System.out.println(prod.toString());
                                         }
                                             System.out.println("----Digite o id do produto desejado----");
                                                 int escolhaDoProduto = teclado.nextInt();
                                                                         teclado.nextLine();
                                                                             System.out.println("Qual a quantidade?");
                                                                                 int quantidadeProd = teclado.nextInt();
+                                                                                    Produto produtoEscolhido = null;
+                                                                                    Double precoProdutoEscolhido = 0.0;
+                                                                                        for (Produto p1 : listaProdutos) {
+                                                                                        if(p1.getId() == escolhaDoProduto){
+                                                                                            produtoEscolhido = p1;
+                                                                                            precoProdutoEscolhido = p1.getPreco();
+
+                                                                                        }
+                                                                                    }
+                                                                                        System.out.println("Diga um id pro seu pedido");
+                                                                                            int idItensPedido = teclado.nextInt();
+                                                                                                teclado.nextLine();
+                                                                                        ItensPedido itens = new ItensPedido(quantidadeProd, precoProdutoEscolhido, produtoEscolhido, idItensPedido);
+                                                                                        
                                                                                     
                                     break;
                                 case 4:

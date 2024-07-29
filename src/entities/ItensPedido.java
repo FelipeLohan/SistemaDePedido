@@ -3,16 +3,18 @@ package entities;
 public class ItensPedido {
     private Integer quantidade;
     private Double preco;
+    private int idItensPedido;
 
     private Produto produto;
 
     
     
     //constructor
-    public ItensPedido(Integer quantidade, Double preco, Produto produto) {
+    public ItensPedido(Integer quantidade, Double preco, Produto produto, int idItensPedido) {
         this.quantidade = quantidade;
-        this.preco = Produto.preco;
+        this.preco = preco;
         this.produto = produto;
+        this.idItensPedido = idItensPedido;
     }
 
 
