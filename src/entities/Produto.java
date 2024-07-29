@@ -3,13 +3,15 @@ package entities;
 public class Produto {
     private String nome;
     private Double preco;
+    private int id;
     
     
     
     //Constructor
-    public Produto(String nome, Double preco) {
+    public Produto(String nome, Double preco, int id) {
         this.nome = nome;
         this.preco = preco;
+        this.id = id;
     }
     
     
@@ -26,6 +28,15 @@ public class Produto {
     public void setPreco(Double preco) {
         this.preco = preco;
     }
+
+
+    @Override
+    public String toString() {
+        return "Produto [nome=" + nome + ", preco=" + preco + ", id=" + id + "]";
+    }
+
+
+    
 
     
 }

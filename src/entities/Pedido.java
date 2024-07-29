@@ -1,12 +1,17 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import entities.enums.StatusPedido;
 
 public class Pedido {
     private Date momentoDoPedido;
     private StatusPedido status;
+
+    private Cliente cliente;
+    List<ItensPedido> items = new ArrayList();
 
     //constructor
     public Pedido(Date momentoDoPedido, StatusPedido status) {
@@ -43,6 +48,11 @@ public class Pedido {
 
     public void setStatus(StatusPedido status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido [momentoDoPedido=" + momentoDoPedido + ", status=" + status + ", cliente=" + cliente + "]";
     }
 
     

@@ -4,12 +4,15 @@ public class ItensPedido {
     private Integer quantidade;
     private Double preco;
 
+    private Produto produto;
+
     
     
     //constructor
-    public ItensPedido(Integer quantidade, Double preco) {
+    public ItensPedido(Integer quantidade, Double preco, Produto produto) {
         this.quantidade = quantidade;
-        this.preco = preco;
+        this.preco = Produto.preco;
+        this.produto = produto;
     }
 
 
@@ -35,6 +38,14 @@ public class ItensPedido {
     public void setPreco(Double preco) {
         this.preco = preco;
     }
+
+
+    @Override
+    public String toString() {
+        return "ItensPedido [quantidade=" + quantidade + ", preco=" + preco + ", produto=" + produto + "]";
+    }
+
+    
 
     
 }
