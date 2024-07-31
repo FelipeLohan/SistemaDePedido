@@ -15,7 +15,8 @@ public class MenuInterativo {
         int opcao = 0;
         List<Produto> listaProdutos = new ArrayList();
         LocalDate momentoPedido = LocalDate.now();
-        Pedido p = new Pedido(momentoPedido, StatusPedido.PAGAMENTO_PENDENTE);
+        List<Cliente> clientes = new ArrayList<>();
+        Pedido p = new Pedido();
         do{
             
             System.out.println("---------Sistema de Pedido---------");
@@ -36,12 +37,26 @@ public class MenuInterativo {
                                                     System.out.println("Data de Nascimento (dd/mm/yyyy):");
                                                         LocalDate aniversario = LocalDate.parse(teclado.nextLine(), fmt);
                                                             Cliente cliente = new Cliente(nome, email, aniversario);
+                                                            clientes.add(cliente);
 
 
 
                                     break;
                                 case 2:
-                                    
+                                    System.out.println("Qual o email do Usuario? ");
+                                        String emailUsuario = teclado.nextLine();
+                                            Cliente clienteEscolhido = null;
+                                            for (Cliente c : clientes) {
+                                                if(c.getEmail() == emailUsuario){
+                                                    clienteEscolhido = c;
+                                                }
+                                            }
+                                            Pedido pedido = new Pedido(momentoPedido, StatusPedido.PAGAMENTO_PENDENTE, clienteEscolhido);
+
+                                            for (ItensPedido i : items) {
+                                                
+                                            }
+                                            
                                     break;
                                 case 3:
                                     System.out.println("Qual produto voce deseja adicionar ao carrinho?");

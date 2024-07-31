@@ -15,10 +15,18 @@ public class Pedido {
     List<ItensPedido> items = new ArrayList();
 
     //constructor
-    public Pedido(LocalDate momentoDoPedido, StatusPedido status) {
+    public Pedido(LocalDate momentoDoPedido, StatusPedido status, Cliente cliente) {
         this.momentoDoPedido = momentoDoPedido;
         this.status = status;
+        this.cliente = cliente;
     }
+
+    
+
+    public Pedido() {
+    }
+
+
 
     //methods
     public void addItem(ItensPedido item){
