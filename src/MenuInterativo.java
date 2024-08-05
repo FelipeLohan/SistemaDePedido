@@ -8,7 +8,7 @@ import entities.enums.StatusPedido;
 
 public class MenuInterativo {
     
-    public static void menuInteragir(){
+    public void menuInteragir(){
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         
         Scanner teclado = new Scanner(System.in);
@@ -16,7 +16,7 @@ public class MenuInterativo {
         List<Produto> listaProdutos = new ArrayList();
         LocalDate momentoPedido = LocalDate.now();
         List<Cliente> clientes = new ArrayList<>();
-        Pedido p = new Pedido();
+        Pedido pedido = null;
         do{
             
             System.out.println("---------Sistema de Pedido---------");
@@ -51,11 +51,9 @@ public class MenuInterativo {
                                                     clienteEscolhido = c;
                                                 }
                                             }
-                                            Pedido pedido = new Pedido(momentoPedido, StatusPedido.PAGAMENTO_PENDENTE, clienteEscolhido);
+                                            pedido = new Pedido(momentoPedido, StatusPedido.PAGAMENTO_PENDENTE, clienteEscolhido);
+                                            pedido.total();
 
-                                            for (ItensPedido i : items) {
-                                                
-                                            }
                                             
                                     break;
                                 case 3:
@@ -81,6 +79,7 @@ public class MenuInterativo {
                                                                                             int idItensPedido = teclado.nextInt();
                                                                                                 teclado.nextLine();
                                                                                         ItensPedido itens = new ItensPedido(quantidadeProd, precoProdutoEscolhido, produtoEscolhido, idItensPedido);
+                                                                                        pedido.items.add(itens);
                                                                                         
                                                                                     
                                     break;

@@ -12,7 +12,7 @@ public class Pedido {
     private StatusPedido status;
 
     private Cliente cliente;
-    List<ItensPedido> items = new ArrayList();
+    public List<ItensPedido> items = new ArrayList();
 
     //constructor
     public Pedido(LocalDate momentoDoPedido, StatusPedido status, Cliente cliente) {
@@ -38,7 +38,13 @@ public class Pedido {
     }
 
     public void total(){
-
+        double total = 0;
+        for (ItensPedido itensPedido : items) {
+            total += itensPedido.subTotal();
+                
+        }
+        System.out.println("Total a pagar: " + total);
+        
     }
 
 
